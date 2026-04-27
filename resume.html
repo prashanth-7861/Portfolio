@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prashanth Mudigonda — Cybersecurity Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sidebar: #1a1a1a;
+    --sidebar2: #242424;
+    --accent: #c8c8c8;
+    --accent2: #e8e8e8;
+    --text-side: #e2e2e2;
+    --muted-side: #8a8a8a;
+    --main-bg: #ffffff;
+    --text-main: #141414;
+    --text2: #444444;
+    --text3: #777777;
+    --border: #e5e5e5;
+    --tag-bg: #f3f3f3;
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html, body {
+    font-family: var(--font-body);
+    background: #e8e8e8;
+    color: var(--text-main);
+    min-height: 100vh;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── PAGE WRAPPER ── */
+  .page-wrap {
+    max-width: 920px;
+    margin: 32px auto;
+    background: var(--main-bg);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 1100px;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--sidebar);
+    padding: 36px 22px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .s-name {
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+  }
+  .s-name h1 {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .s-name h1 span { display: block; }
+  .s-role {
+    margin-top: 7px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-side);
+    line-height: 1.6;
+  }
+
+  .s-section { display: flex; flex-direction: column; gap: 8px; }
+  .s-section-title {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-side);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #2e2e2e;
+    margin-bottom: 4px;
+  }
+
+  .s-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 11.5px;
+    color: var(--text-side);
+    line-height: 1.4;
+    word-break: break-all;
+  }
+  .s-contact-item svg { flex-shrink: 0; margin-top: 1px; opacity: 0.6; }
+
+  .s-skill-cat { margin-bottom: 10px; }
+  .s-skill-cat-name {
+    font-size: 10px;
+    font-family: var(--font-mono);
+    color: var(--muted-side);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 5px;
+  }
+  .s-skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .s-skill-tag {
+    font-size: 10.5px;
+    padding: 2px 7px;
+    background: #2a2a2a;
+    color: var(--accent);
+    border-radius: 3px;
+    border: 1px solid #333;
+    font-family: var(--font-mono);
+  }
+
+  .s-cert-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 7px 0;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .s-cert-item:last-child { border-bottom: none; }
+  .s-cert-name {
+    font-size: 11.5px;
+    color: var(--text-side);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .s-cert-org { font-size: 10px; color: var(--muted-side); }
+  .s-cert-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-family: var(--font-mono);
+    padding: 1px 5px;
+    background: #2f2f2f;
+    color: var(--muted-side);
+    border-radius: 2px;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .s-cert-badge.trained { color: #93c5fd; }
+  .s-cert-badge.progress { color: #fbbf24; }
+
+  .s-extra-item { padding: 5px 0; border-bottom: 1px solid #2a2a2a; }
+  .s-extra-item:last-child { border-bottom: none; }
+  .s-extra-title { font-size: 11.5px; color: var(--text-side); font-weight: 500; }
+  .s-extra-org { font-size: 10px; color: var(--muted-side); margin-top: 1px; }
+
+  /* ── MAIN ── */
+  .main {
+    padding: 36px 36px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  /* Header bar */
+  .main-header {
+    border-bottom: 2px solid var(--text-main);
+    padding-bottom: 14px;
+  }
+  .main-header h2 {
+    font-family: var(--font-head);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .main-header .title-sub {
+    font-size: 13px;
+    color: var(--text3);
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* Section */
+  .m-section { display: flex; flex-direction: column; gap: 4px; }
+  .m-section-title {
+    font-family: var(--font-head);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-main);
+    padding-bottom: 5px;
+    border-bottom: 1.5px solid var(--text-main);
+    margin-bottom: 10px;
+  }
+
+  /* Summary */
+  .summary-text {
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--text2);
+    text-wrap: pretty;
+  }
+
+  /* Experience / Education entries */
+  .entry { margin-bottom: 16px; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 3px;
+  }
+  .entry-title {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+  .entry-date {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--text3);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .entry-org {
+    font-size: 12.5px;
+    color: var(--text3);
+    margin-bottom: 6px;
+  }
+  .entry-org strong { color: var(--text2); font-weight: 500; }
+  .entry-bullets { display: flex; flex-direction: column; gap: 4px; padding-left: 2px; }
+  .entry-bullet {
+    display: flex;
+    gap: 9px;
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.55;
+    align-items: baseline;
+  }
+  .bullet-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--text-main);
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* Project entries */
+  .project-entry { margin-bottom: 14px; }
+  .project-entry:last-child { margin-bottom: 0; }
+  .project-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 3px;
+    flex-wrap: wrap;
+  }
+  .project-name {
+    font-family: var(--font-head);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+  .project-link {
+    font-size: 10.5px;
+    font-family: var(--font-mono);
+    color: var(--text3);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--text3);
+  }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 4px; margin: 5px 0; }
+  .project-tech-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text3);
+    font-family: var(--font-mono);
+  }
+  .project-desc {
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.55;
+  }
+  .project-highlight {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text2);
+    line-height: 1.5;
+    align-items: baseline;
+    margin-top: 3px;
+  }
+
+  /* Education */
+  .edu-gpa {
+    display: inline-block;
+    font-size: 10.5px;
+    font-family: var(--font-mono);
+    padding: 1px 6px;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text3);
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .courses { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .course-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text3);
+  }
+
+  /* Print / download bar */
+  .print-bar {
+    background: #1a1a1a;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .print-bar-left {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #8a8a8a;
+  }
+  .print-bar-btns { display: flex; gap: 10px; }
+  .print-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-family: var(--font-head);
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+    border: none;
+  }
+  .print-btn-primary {
+    background: #ffffff;
+    color: #1a1a1a;
+  }
+  .print-btn-primary:hover { background: #e8e8e8; }
+  .print-btn-secondary {
+    background: #2a2a2a;
+    color: #c8c8c8;
+    border: 1px solid #3a3a3a;
+  }
+  .print-btn-secondary:hover { background: #333; }
+
+  /* ── PRINT ── */
+  @media print {
+    html, body { background: white; }
+    .print-bar { display: none; }
+    .page-wrap {
+      margin: 0;
+      box-shadow: none;
+      max-width: 100%;
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar { padding: 28px 20px; }
+    .main { padding: 28px 20px; }
+    .print-bar { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+
+/* ── THEME: DARK ── */
+body.theme-dark {
+  background: #111;
+}
+body.theme-dark .page-wrap {
+  background: #1a1a1a;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+body.theme-dark .sidebar {
+  background: #0d0d0d;
+}
+body.theme-dark .sidebar2 { background: #141414; }
+body.theme-dark .main { background: #1a1a1a; }
+body.theme-dark .main-header { border-color: #444; }
+body.theme-dark .main-header h2 { color: #f0f0f0; }
+body.theme-dark .main-header .title-sub { color: #666; }
+body.theme-dark .m-section-title { color: #e0e0e0; border-color: #444; }
+body.theme-dark .summary-text { color: #aaa; }
+body.theme-dark .entry-title { color: #e8e8e8; }
+body.theme-dark .entry-org { color: #777; }
+body.theme-dark .entry-org strong { color: #999; }
+body.theme-dark .entry-bullet { color: #999; }
+body.theme-dark .bullet-dot { background: #aaa; }
+body.theme-dark .project-name { color: #e8e8e8; }
+body.theme-dark .project-link { color: #555; border-color: #444; }
+body.theme-dark .project-desc { color: #999; }
+body.theme-dark .project-tech-tag { background: #222; border-color: #333; color: #666; }
+body.theme-dark .course-tag { background: #222; border-color: #333; color: #666; }
+body.theme-dark .edu-gpa { background: #222; border-color: #333; color: #666; }
+body.theme-dark .print-bar { background: #0a0a0a; }
+
+/* ── THEME: SEPIA ── */
+body.theme-sepia {
+  background: #c8b89a;
+}
+body.theme-sepia .page-wrap {
+  background: #faf6ef;
+}
+body.theme-sepia .sidebar {
+  background: #2c2318;
+}
+body.theme-sepia .s-name { border-color: #3d3020; }
+body.theme-sepia .s-section-title { color: #7a6a55; border-color: #3d3020; }
+body.theme-sepia .s-skill-tag { background: #332619; border-color: #463524; color: #c8aa88; }
+body.theme-sepia .s-cert-item { border-color: #3d3020; }
+body.theme-sepia .s-extra-item { border-color: #3d3020; }
+body.theme-sepia .main-header { border-color: #5c4a2a; }
+body.theme-sepia .main-header h2 { color: #2c1f0e; }
+body.theme-sepia .main-header .title-sub { color: #9a7a55; }
+body.theme-sepia .m-section-title { color: #2c1f0e; border-color: #5c4a2a; }
+body.theme-sepia .summary-text { color: #5a4030; }
+body.theme-sepia .entry-title { color: #2c1f0e; }
+body.theme-sepia .entry-org { color: #8a6a45; }
+body.theme-sepia .entry-bullet { color: #5a4030; }
+body.theme-sepia .bullet-dot { background: #5c4a2a; }
+body.theme-sepia .project-name { color: #2c1f0e; }
+body.theme-sepia .project-link { color: #9a7a55; border-color: #c8aa88; }
+body.theme-sepia .project-tech-tag { background: #ede5d8; border-color: #d4c4a8; color: #7a5a30; }
+body.theme-sepia .course-tag { background: #ede5d8; border-color: #d4c4a8; color: #7a5a30; }
+body.theme-sepia .edu-gpa { background: #ede5d8; border-color: #d4c4a8; color: #7a5a30; }
+body.theme-sepia .print-bar { background: #2c2318; }
+body.theme-sepia .border { color: #d4c4a8; }
+
+/* ── SIDEBAR TONES ── */
+body.sidebar-navy .sidebar   { background: #0f1f3d; }
+body.sidebar-navy .s-name    { border-color: #1a3060; }
+body.sidebar-navy .s-section-title { border-color: #1a3060; }
+body.sidebar-navy .s-skill-tag  { background: #162a50; border-color: #1e3868; }
+body.sidebar-navy .s-cert-item  { border-color: #1a3060; }
+body.sidebar-navy .s-extra-item { border-color: #1a3060; }
+body.sidebar-navy .print-bar    { background: #08112a; }
+
+body.sidebar-forest .sidebar   { background: #0d2218; }
+body.sidebar-forest .s-name    { border-color: #163a24; }
+body.sidebar-forest .s-section-title { border-color: #163a24; }
+body.sidebar-forest .s-skill-tag  { background: #122c1c; border-color: #1a3e28; }
+body.sidebar-forest .s-cert-item  { border-color: #163a24; }
+body.sidebar-forest .s-extra-item { border-color: #163a24; }
+body.sidebar-forest .print-bar    { background: #071410; }
+
+body.sidebar-oxblood .sidebar   { background: #2a0a0a; }
+body.sidebar-oxblood .s-name    { border-color: #3e1010; }
+body.sidebar-oxblood .s-section-title { border-color: #3e1010; }
+body.sidebar-oxblood .s-skill-tag  { background: #351010; border-color: #4a1818; }
+body.sidebar-oxblood .s-cert-item  { border-color: #3e1010; }
+body.sidebar-oxblood .s-extra-item { border-color: #3e1010; }
+body.sidebar-oxblood .print-bar    { background: #1a0505; }
+
+/* ── DENSITY: COMPACT ── */
+body.density-compact .page-wrap  { min-height: auto; }
+body.density-compact .sidebar    { padding: 22px 16px 20px; gap: 18px; }
+body.density-compact .main       { padding: 22px 26px 28px; gap: 16px; }
+body.density-compact .summary-text { font-size: 12px; line-height: 1.6; }
+body.density-compact .entry      { margin-bottom: 10px; }
+body.density-compact .entry-title { font-size: 13px; }
+body.density-compact .entry-bullet { font-size: 11.5px; }
+body.density-compact .project-entry { margin-bottom: 10px; }
+body.density-compact .project-name { font-size: 12.5px; }
+body.density-compact .project-desc { font-size: 11.5px; }
+body.density-compact .m-section  { gap: 2px; }
+body.density-compact .s-skill-cat { margin-bottom: 7px; }
+body.density-compact .s-cert-item { padding: 4px 0; }
+
+/* ── DENSITY: SPACIOUS ── */
+body.density-spacious .sidebar   { padding: 48px 28px 40px; gap: 36px; }
+body.density-spacious .main      { padding: 48px 48px 56px; gap: 36px; }
+body.density-spacious .summary-text { font-size: 14.5px; line-height: 1.85; }
+body.density-spacious .entry     { margin-bottom: 22px; }
+body.density-spacious .entry-title { font-size: 15.5px; }
+body.density-spacious .entry-bullet { font-size: 13.5px; line-height: 1.7; }
+body.density-spacious .project-entry { margin-bottom: 20px; }
+body.density-spacious .project-name { font-size: 15px; }
+body.density-spacious .m-section { gap: 6px; }
+body.density-spacious .s-name h1 { font-size: 26px; }
+body.density-spacious .s-cert-item { padding: 10px 0; }
+</style>
+</head>
+<body>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "resumeTheme": "light",
+  "sidebarTone": "charcoal",
+  "density": "comfortable",
+  "accent": "amber",
+  "sidebarWide": false,
+  "animationSpeed": "normal",
+  "showLabHours": true
+}/*EDITMODE-END*/;
+
+function ResumeTweaks() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  React.useEffect(() => {
+    const b = document.body;
+    // Theme
+    b.classList.remove('theme-dark', 'theme-sepia');
+    if (t.resumeTheme === 'dark')  b.classList.add('theme-dark');
+    if (t.resumeTheme === 'sepia') b.classList.add('theme-sepia');
+    // Sidebar
+    b.classList.remove('sidebar-navy', 'sidebar-forest', 'sidebar-oxblood');
+    if (t.sidebarTone === 'navy')     b.classList.add('sidebar-navy');
+    if (t.sidebarTone === 'forest')   b.classList.add('sidebar-forest');
+    if (t.sidebarTone === 'oxblood')  b.classList.add('sidebar-oxblood');
+    // Density
+    b.classList.remove('density-compact', 'density-spacious');
+    if (t.density === 'compact')   b.classList.add('density-compact');
+    if (t.density === 'spacious')  b.classList.add('density-spacious');
+  }, [t.resumeTheme, t.sidebarTone, t.density]);
+
+  return (
+    <TweaksPanel onClose={() => window.parent.postMessage({type:'__edit_mode_dismissed'},'*')}>
+      <TweakSection title="Theme">
+        <TweakRadio
+          value={t.resumeTheme}
+          options={[
+            { value: 'light', label: 'Light' },
+            { value: 'dark',  label: 'Dark'  },
+            { value: 'sepia', label: 'Sepia' }
+          ]}
+          onChange={v => setTweak('resumeTheme', v)}
+        />
+      </TweakSection>
+      <TweakSection title="Sidebar Tone">
+        <TweakRadio
+          value={t.sidebarTone}
+          options={[
+            { value: 'charcoal', label: 'Charcoal' },
+            { value: 'navy',     label: 'Navy'     },
+            { value: 'forest',   label: 'Forest'   },
+            { value: 'oxblood',  label: 'Oxblood'  }
+          ]}
+          onChange={v => setTweak('sidebarTone', v)}
+        />
+      </TweakSection>
+      <TweakSection title="Density">
+        <TweakRadio
+          value={t.density}
+          options={[
+            { value: 'compact',     label: 'Compact'     },
+            { value: 'comfortable', label: 'Comfortable' },
+            { value: 'spacious',    label: 'Spacious'    }
+          ]}
+          onChange={v => setTweak('density', v)}
+        />
+      </TweakSection>
+    </TweaksPanel>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<ResumeTweaks />);
+</script>
+<div id="tweaks-root"></div>
+
+<!-- Top action bar -->
+<div class="print-bar">
+  <span class="print-bar-left">prashanth-mudigonda-resume.pdf</span>
+  <div class="print-bar-btns">
+    <a href="portfolio.html" class="print-btn print-btn-secondary">← Portfolio</a>
+    <button class="print-btn print-btn-primary" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Save as PDF
+    </button>
+  </div>
+</div>
+
+<!-- Resume page -->
+<div class="page-wrap">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Name -->
+    <div class="s-name">
+      <h1><span>Prashanth</span><span>Mudigonda</span></h1>
+      <div class="s-role">MS Cybersecurity<br>SOC · Network Security<br>Penetration Testing</div>
+    </div>
+
+    <!-- Contact -->
+    <div class="s-section">
+      <div class="s-section-title">Contact</div>
+      <div class="s-contact-item">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Alpharetta, GA, USA
+      </div>
+      <div class="s-contact-item">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        github.com/prashanth-7861
+      </div>
+      <div class="s-contact-item">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        linkedin.com/in/mudigondaprashanth
+      </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="s-section">
+      <div class="s-section-title">Technical Skills</div>
+
+      <div class="s-skill-cat">
+        <div class="s-skill-cat-name">Languages</div>
+        <div class="s-skill-tags">
+          <span class="s-skill-tag">Python</span>
+          <span class="s-skill-tag">Bash</span>
+          <span class="s-skill-tag">Java</span>
+          <span class="s-skill-tag">C++</span>
+          <span class="s-skill-tag">HTML</span>
+          <span class="s-skill-tag">PHP</span>
+        </div>
+      </div>
+
+      <div class="s-skill-cat">
+        <div class="s-skill-cat-name">Security Tools</div>
+        <div class="s-skill-tags">
+          <span class="s-skill-tag">Nmap</span>
+          <span class="s-skill-tag">Wireshark</span>
+          <span class="s-skill-tag">Metasploit</span>
+          <span class="s-skill-tag">Burp Suite</span>
+          <span class="s-skill-tag">Nessus</span>
+          <span class="s-skill-tag">sqlmap</span>
+          <span class="s-skill-tag">Aircrack-ng</span>
+          <span class="s-skill-tag">Hydra</span>
+          <span class="s-skill-tag">SET</span>
+          <span class="s-skill-tag">BeEF</span>
+        </div>
+      </div>
+
+      <div class="s-skill-cat">
+        <div class="s-skill-cat-name">Digital Forensics</div>
+        <div class="s-skill-tags">
+          <span class="s-skill-tag">Autopsy</span>
+          <span class="s-skill-tag">Photorec</span>
+          <span class="s-skill-tag">tsk_recover</span>
+          <span class="s-skill-tag">foremost</span>
+        </div>
+      </div>
+
+      <div class="s-skill-cat">
+        <div class="s-skill-cat-name">Operating Systems</div>
+        <div class="s-skill-tags">
+          <span class="s-skill-tag">Kali Linux</span>
+          <span class="s-skill-tag">Parrot OS</span>
+          <span class="s-skill-tag">Ubuntu</span>
+          <span class="s-skill-tag">Debian</span>
+          <span class="s-skill-tag">Windows</span>
+        </div>
+      </div>
+
+      <div class="s-skill-cat">
+        <div class="s-skill-cat-name">Python Libraries</div>
+        <div class="s-skill-tags">
+          <span class="s-skill-tag">NumPy</span>
+          <span class="s-skill-tag">Pandas</span>
+          <span class="s-skill-tag">Scikit-learn</span>
+          <span class="s-skill-tag">Flask</span>
+          <span class="s-skill-tag">Django</span>
+          <span class="s-skill-tag">PyQt5</span>
+        </div>
+      </div>
+
+      <div class="s-skill-cat">
+        <div class="s-skill-cat-name">Databases</div>
+        <div class="s-skill-tags">
+          <span class="s-skill-tag">MySQL</span>
+          <span class="s-skill-tag">SQLCipher</span>
+          <span class="s-skill-tag">WampServer</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="s-section">
+      <div class="s-section-title">Certifications</div>
+
+      <div class="s-cert-item">
+        <div class="s-cert-name">C|EH v12 — Ethical Hacker Training</div>
+        <div class="s-cert-org">EC-Council Accredited</div>
+        <span class="s-cert-badge trained">Trained</span>
+      </div>
+      <div class="s-cert-item">
+        <div class="s-cert-name">Google Cybersecurity Professional</div>
+        <div class="s-cert-org">Google via Coursera</div>
+        <span class="s-cert-badge progress">In Progress</span>
+      </div>
+      <div class="s-cert-item">
+        <div class="s-cert-name">Mastercard Cybersecurity Virtual Experience</div>
+        <div class="s-cert-org">Forage · Mar 2023</div>
+        <span class="s-cert-badge">Completed</span>
+      </div>
+      <div class="s-cert-item">
+        <div class="s-cert-name">Ethical Hacking A–Z: Beginner to Expert</div>
+        <div class="s-cert-org">Udemy · Anthony Timbers</div>
+        <span class="s-cert-badge">Completed</span>
+      </div>
+      <div class="s-cert-item">
+        <div class="s-cert-name">Ethical Hacking: Network Attacks</div>
+        <div class="s-cert-org">Udemy · Peter A</div>
+        <span class="s-cert-badge">Completed</span>
+      </div>
+    </div>
+
+    <!-- Activities -->
+    <div class="s-section">
+      <div class="s-section-title">Activities</div>
+      <div class="s-extra-item">
+        <div class="s-extra-title">Cybersecurity Webinar</div>
+        <div class="s-extra-org">MoxieHawk</div>
+      </div>
+      <div class="s-extra-item">
+        <div class="s-extra-title">Offensive & Defensive Techniques Workshop</div>
+        <div class="s-extra-org">HackingFlix (Gautam Kumawat)</div>
+      </div>
+      <div class="s-extra-item">
+        <div class="s-extra-title">Technical Fest Organizer</div>
+        <div class="s-extra-org">College — Leadership & Events</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- Header -->
+    <div class="main-header">
+      <h2>Cybersecurity Professional</h2>
+      <div class="title-sub">SOC Analyst · Network Security · Penetration Testing · Digital Forensics</div>
+    </div>
+
+    <!-- Summary -->
+    <div class="m-section">
+      <div class="m-section-title">Summary</div>
+      <p class="summary-text">
+        MS Cybersecurity graduate (3.79 GPA, Auburn University at Montgomery) with 1,000+ hours hands-on in Kali Linux, Metasploit, Wireshark, and live attack simulations. Built production-grade security tools — a dual-layer AES-256-GCM-SIV + ChaCha20-Poly1305 vault, a MITRE ATT&CK mapped log analyzer, and a binary file signature forensics engine. Operates at the systems level: kernel hardening, network stack configuration, .evtx binary parsing, and custom cryptographic pipelines. Ready for immediate impact in SOC Analyst, Network Security Analyst, or Penetration Testing roles.
+      </p>
+    </div>
+
+    <!-- Projects -->
+    <div class="m-section">
+      <div class="m-section-title">Projects</div>
+
+      <div class="project-entry">
+        <div class="project-title-row">
+          <span class="project-name">WireSeal</span>
+          <a href="https://github.com/prashanth-7861/WireSeal" class="project-link" target="_blank">github.com/prashanth-7861/WireSeal</a>
+        </div>
+        <div class="project-tech">
+          <span class="project-tech-tag">Python</span>
+          <span class="project-tech-tag">WireGuard</span>
+          <span class="project-tech-tag">AES-256-GCM-SIV</span>
+          <span class="project-tech-tag">ChaCha20-Poly1305</span>
+          <span class="project-tech-tag">Argon2id</span>
+          <span class="project-tech-tag">TypeScript</span>
+          <span class="project-tech-tag">nftables</span>
+        </div>
+        <div class="entry-bullets">
+          <div class="entry-bullet"><div class="bullet-dot"></div>Production-grade WireGuard automation with dual-layer AEAD vault — zero plaintext secrets ever written to disk</div>
+          <div class="entry-bullet"><div class="bullet-dot"></div>Argon2id KDF (256 MiB memory cost, ≥500ms calibrated); TOTP 2FA; LUKS-style multi-admin keyslots; ephemeral peer TTLs</div>
+          <div class="entry-bullet"><div class="bullet-dot"></div>Cross-platform (Linux x86_64/ARM64, macOS arm64, Windows); 231 commits · 31 releases · pip-audit CI supply-chain checks</div>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title-row">
+          <span class="project-name">Log Analyzer & Alert Triage</span>
+          <a href="https://github.com/prashanth-7861/log-analyzer-alert-triage" class="project-link" target="_blank">github.com/prashanth-7861/log-analyzer-alert-triage</a>
+        </div>
+        <div class="project-tech">
+          <span class="project-tech-tag">Python</span>
+          <span class="project-tech-tag">MITRE ATT&CK</span>
+          <span class="project-tech-tag">EVTX Parsing</span>
+          <span class="project-tech-tag">YAML Config</span>
+          <span class="project-tech-tag">SOC</span>
+        </div>
+        <div class="entry-bullets">
+          <div class="entry-bullet"><div class="bullet-dot"></div>SOC-ready Python engine: binary .evtx + Linux auth.log parsing, behavioral detection rules mapped to MITRE ATT&CK tactics (TA0006, TA0004, TA0008)</div>
+          <div class="entry-bullet"><div class="bullet-dot"></div>Alert correlation by IP/user in configurable time windows; detects brute force, privilege escalation, off-hours logins, lateral movement</div>
+          <div class="entry-bullet"><div class="bullet-dot"></div>Outputs interactive HTML visual reports, structured JSON, and CSV — no external system tools required</div>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title-row">
+          <span class="project-name">File Signature Analyzer</span>
+          <a href="https://github.com/prashanth-7861/file-signature-analyzer" class="project-link" target="_blank">github.com/prashanth-7861/file-signature-analyzer</a>
+        </div>
+        <div class="project-tech">
+          <span class="project-tech-tag">Python</span>
+          <span class="project-tech-tag">Binary Analysis</span>
+          <span class="project-tech-tag">Digital Forensics</span>
+        </div>
+        <div class="entry-bullets">
+          <div class="entry-bullet"><div class="bullet-dot"></div>Identifies file types from binary magic bytes regardless of extension; handles ambiguous multi-format overlaps (ZIP/EPUB/DOCX)</div>
+          <div class="entry-bullet"><div class="bullet-dot"></div>Creates disambiguation copies and generates detailed forensic analysis reports; applicable to malware analysis and incident response</div>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title-row">
+          <span class="project-name">E-Notes — Zero-Knowledge Encrypted Note App</span>
+          <a href="https://github.com/prashanth-7861/E-Notes" class="project-link" target="_blank">github.com/prashanth-7861/E-Notes</a>
+        </div>
+        <div class="project-tech">
+          <span class="project-tech-tag">Flutter</span>
+          <span class="project-tech-tag">AES-256-GCM</span>
+          <span class="project-tech-tag">PBKDF2</span>
+          <span class="project-tech-tag">SQLCipher</span>
+          <span class="project-tech-tag">HKDF</span>
+        </div>
+        <div class="entry-bullets">
+          <div class="entry-bullet"><div class="bullet-dot"></div>Zero-knowledge offline-first app: per-note AES-256-GCM + SQLCipher at rest; PBKDF2-HMAC-SHA256 (600k iterations) + HKDF key hierarchy</div>
+          <div class="entry-bullet"><div class="bullet-dot"></div>291 passing tests (crypto vectors, auth flows, DB integrity); cross-platform: Android, iOS, macOS, Windows, Linux, Web</div>
+        </div>
+      </div>
+
+      <div class="project-entry">
+        <div class="project-title-row">
+          <span class="project-name">AES Encryption Engine</span>
+        </div>
+        <div class="project-tech">
+          <span class="project-tech-tag">Python</span>
+          <span class="project-tech-tag">AES</span>
+          <span class="project-tech-tag">Cryptography</span>
+        </div>
+        <div class="entry-bullets">
+          <div class="entry-bullet"><div class="bullet-dot"></div>Custom AES pipeline — SubBytes, ShiftRows, MixColumns, AddRoundKey — built without high-level crypto libraries; 128-bit key scheduling</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Education -->
+    <div class="m-section">
+      <div class="m-section-title">Education</div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">M.S. Computer & Information Systems Security <span class="edu-gpa">3.79 / 4.0</span></div>
+          <div class="entry-date">2023 – 2025</div>
+        </div>
+        <div class="entry-org"><strong>Auburn University at Montgomery</strong> · AL, USA</div>
+        <div class="courses">
+          <span class="course-tag">Malware Analysis & Digital Forensics</span>
+          <span class="course-tag">Ethical Hacking & Pen Testing</span>
+          <span class="course-tag">Network Security & Reliability</span>
+          <span class="course-tag">Advanced Operating Systems</span>
+          <span class="course-tag">Advanced Network Systems</span>
+          <span class="course-tag">Linux</span>
+          <span class="course-tag">Python</span>
+          <span class="course-tag">C++</span>
+          <span class="course-tag">Database Systems</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div class="entry-title">B.Tech Computer Science Engineering <span class="edu-gpa">6.23 / 10</span></div>
+          <div class="entry-date">2018 – 2022</div>
+        </div>
+        <div class="entry-org"><strong>Sri Indu Institute of Engineering & Technology</strong> · JNTU Hyderabad, India</div>
+        <div class="courses">
+          <span class="course-tag">Data Structures</span>
+          <span class="course-tag">Design & Analysis of Algorithms</span>
+          <span class="course-tag">Computer Networks</span>
+          <span class="course-tag">Database Management Systems</span>
+          <span class="course-tag">Data Mining</span>
+          <span class="course-tag">Software Engineering</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
