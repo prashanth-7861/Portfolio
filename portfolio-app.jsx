@@ -64,12 +64,12 @@ function App() {
   // Apply accent CSS var
   useEffect(() => {
     const accents = {
-      blue:   { main: '#2563eb', light: '#60a5fa', glow: 'rgba(37,99,235,0.18)' },
-      teal:   { main: '#0891b2', light: '#22d3ee', glow: 'rgba(8,145,178,0.18)' },
-      purple: { main: '#7c3aed', light: '#a78bfa', glow: 'rgba(124,58,237,0.18)' },
-      amber:  { main: '#d97706', light: '#fbbf24', glow: 'rgba(217,119,6,0.18)' }
+      blue:   { main: '#d97706', light: '#fbbf24', glow: 'rgba(217,119,6,0.18)' },
+       teal:   { main: '#0891b2', light: '#22d3ee', glow: 'rgba(8,145,178,0.18)' },
+       purple: { main: '#7c3aed', light: '#a78bfa', glow: 'rgba(124,58,237,0.18)' },
+       amber:  { main: '#d97706', light: '#fbbf24', glow: 'rgba(217,119,6,0.18)' }
     };
-    const a = accents[tweaks.accent] || accents.blue;
+    const a = accents[tweaks.accent] || accents.amber;
     document.documentElement.style.setProperty('--accent', dark ? a.light : a.main);
     document.documentElement.style.setProperty('--accent-glow', a.glow);
     document.documentElement.style.setProperty('--accent-light', a.light);

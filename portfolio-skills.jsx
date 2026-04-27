@@ -39,7 +39,7 @@ function RadarChart({ skills, dark, animate }) {
     }).map(p => p.join(',')).join(' ');
   }
 
-  const accent = dark ? '#60a5fa' : '#2563eb';
+  const accent = dark ? '#fbbf24' : '#d97706';
   const gridColor = dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.07)';
   const axisColor = dark ? 'rgba(255,255,255,0.12)' : 'rgba(0,0,0,0.10)';
   const textColor = dark ? '#94a3b8' : '#64748b';

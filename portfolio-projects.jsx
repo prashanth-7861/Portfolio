@@ -81,7 +81,7 @@ function FeaturedProject({ project }) {
           <div className="featured-lang-bar">
             <div className="lang-title">Languages</div>
             {[
-              { name: 'Python', pct: 58.7, color: '#3b82f6' },
+              { name: 'Python', pct: 58.7, color: '#d97706' },
               { name: 'TypeScript', pct: 32.4, color: '#06b6d4' },
               { name: 'Shell', pct: 4.8, color: '#8b5cf6' },
               { name: 'Other', pct: 4.1, color: '#94a3b8' }
